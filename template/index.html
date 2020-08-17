@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>ML Deployment</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('Static', filename='css/style.css') }}">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+<body>
+ <div class="login">
+	<h1>Predict Employees Absenteeism</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+
+        <body>
+
+<img src="emp.jpg" alt="HTML5 Icon" width="600" height="250">
+
+
+</body>
+
+<br><input type="text" name="Reason_for_absence" placeholder="Reason for absence" required="required" />
+        <br>
+        <input type="text" name="Month_of_absence" placeholder="Month of absence" required="required" />
+        <br>
+		<input type="text" name="Day_of_the_week" placeholder="Day of the week" required="required" />
+        <br>
+		<input type="text" name="Seasons" placeholder="Seasons" required="required" />
+        <br>
+
+
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+ </div>
+</body>
+</html>
